@@ -36,9 +36,9 @@ export async function getPostDetails(pid) {
   const postRef = fb.doc(db, 'posts', pid)
   const postDoc = await fb.getDoc(postRef)
   if(postDoc.exists()){
-    const {description, imageurl, postid, price, publisher, store, type} = postDoc.data()
+    const { imageurl, postid, publisher, type,items} = postDoc.data()
     // console.log(userDoc.data())
-    return {description, imageurl, postid, price, publisher, store, type}
+    return { imageurl, postid, publisher, type, items}
   }
   else{
     console.log("error")
